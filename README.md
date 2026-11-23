@@ -33,7 +33,7 @@ Génère des variantes de noms, de pseudos et d'adresses e-mail à partir d'un p
 ### Outils
 | Outil | Ce qu'il donne |
 |---|---|
-| **Réseau** | Localisation d'une IP, nom inverse, scan de ports |
+| **Réseau** | Localisation d'une IP, nom inverse, scan de ports, **Shodan InternetDB** (gratuit), **Shodan** et **Censys** avec ta propre clé (ports, services, CVE) |
 | **Téléphone** | Validité, pays, région, opérateur, type de ligne |
 | **E-mail** | Fournisseur, jetable, serveurs mail, SPF/DMARC, Gravatar, fuites de données |
 | **Domaine** | DNS, propriétaire (RDAP), sous-domaines, archives |
@@ -41,13 +41,29 @@ Génère des variantes de noms, de pseudos et d'adresses e-mail à partir d'un p
 
 ![Outils](outils.png)
 
+**Intelligence réseau** : depuis l'outil Réseau, interroge Shodan InternetDB (gratuit) ou, avec tes propres clés, Shodan et Censys. Tu obtiens les ports, les services, les noms d'hôte et les vulnérabilités connues (CVE) d'une IP publique.
+
+![Réseau](reseau.png)
+
 ### Graphe d'enquête
 Un graphe interactif à la Maltego : chaque résultat peut être ajouté d'une case à cocher, les hypothèses sont en pointillés, et un double-clic lance la transformation suivante.
 - **Dossiers d'enquête** : plusieurs graphes nommés, avec notes par entité.
-- **Rapport** HTML ou PDF prêt à partager.
+- **Niveaux de confiance A à F** sur chaque entité (confirmé, probable, indice, hypothèse, conflit, obsolète), avec source et date.
+- **Missions** : objectif, cible, contexte et périmètre de chaque enquête, repris dans le rapport.
+- Liens de **contradiction** entre deux entités.
+- **Rapport** HTML ou PDF structuré : mission, faits, indices, hypothèses, conflits, sources, recommandations.
 - **Export chiffré** `.mauy` protégé par mot de passe.
 
 ![Graphe](graphe.png)
+
+Chaque entité porte un **niveau de confiance** (A à F), une source et une date, modifiables dans l'inspecteur. Deux entités peuvent être marquées comme contradictoires.
+
+![Confiance](confiance.png)
+
+### Audit d'empreinte
+Dans OUTILS > AUDIT : saisis ton pseudo, tes e-mails et ton domaine. L'outil cherche tes comptes publics, tes fuites de données et les failles de ton domaine (SPF, DMARC, sous-domaines), puis calcule un **score d'exposition** et un **plan d'action**. Un clic crée un dossier d'enquête prêt pour le rapport.
+
+![Audit](audit.png)
 
 ### Et aussi
 - **Surveillance** automatique d'un pseudo, avec alertes Telegram ou e-mail.
@@ -67,7 +83,7 @@ Un graphe interactif à la Maltego : chaque résultat peut être ajouté d'une c
 Compare l'empreinte SHA-256 du fichier téléchargé avec celle-ci :
 
 ```
-BD2521431255BB8C32C7998E7A425733F7293A3D9DA7F25742AAB5FF377F743C
+28268899807BB414C2F57140DB84A337BC5E1D8E1D7F97D76ED0A8377D0B9556
 ```
 
 ```powershell
