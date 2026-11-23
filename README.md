@@ -83,7 +83,7 @@ Dans OUTILS > AUDIT : saisis ton pseudo, tes e-mails et ton domaine. L'outil che
 Compare l'empreinte SHA-256 du fichier téléchargé avec celle-ci :
 
 ```
-28268899807BB414C2F57140DB84A337BC5E1D8E1D7F97D76ED0A8377D0B9556
+7743655603F9AF3717EA3C1858E969A8D1E7C0922B8F71F2EB56AD4F4BE7AF73
 ```
 
 ```powershell
